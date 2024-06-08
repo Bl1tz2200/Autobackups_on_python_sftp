@@ -9,5 +9,9 @@ That will create file with parameters. Parameters are used in **save_files.py**.
 After running **save_files.py** files will be saved to the remote host's path.<br>
 If something is wrong files won't save and error won't raise. Be careful with settings.<br>
 
+# Auto save
+To make files automatically save you can use crontab if you use linux.<br>
+For Windows system you can use Windows Task Scheduler.
+
 # Addition
 Files won't run if you don't have python installed, that's why you can use **.exe** ones.<br>
