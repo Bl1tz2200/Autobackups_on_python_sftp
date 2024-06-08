@@ -1,5 +1,5 @@
-# Autobackups_on_python
-I made autobackup service on python. I used SFTP.
+# Autobackups_on_python_sftp
+I made autobackup service on python. I used SFTP to transmit files.
 
 # Create settings file
 First run **backup_settings_set.py** to create settings file.<br>
