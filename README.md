@@ -14,4 +14,4 @@ To make files automatically save you can use crontab if you use linux.<br>
 For Windows system you can use Windows Task Scheduler.
 
 # Addition
-Files won't run if you don't have python installed, that's why you can use **.exe** ones.<br>
+Files from py folder won't run if you don't have python installed, that's why you can use **.exe** ones.<br>
