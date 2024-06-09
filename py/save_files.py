@@ -16,6 +16,18 @@ def upload(hostname, username, password, local_file_path, remote_file_path):
     sftp.close() # Stop connections
     ssh.close()
 
+def formatting_file(filesys,remote_file_path) -> str:  # Adding file to Backup path with date (I've got troubles with equaling '/' and '\\' that's why I used func)
+        now = datetime.now().strftime("%Y-%m-%d %H:%M")
+        index = -1
+        format_remote_file_path = ""
+        for i in remote_file_path[::-1]:
+            if i != filesys:
+                index -= 1
+            else:
+                format_remote_file_path = f"{remote_file_path[:index:]}{filesys}Backup {now}{filesys}{remote_file_path[index + 1::]}"
+                break
+        return format_remote_file_path
+
 
 
 def main ():
@@ -31,14 +43,12 @@ def main ():
                 remote_file_path = settings[4]
 
                 #Add data and time to saved file
-                index = -1
-                now = datetime.now().strftime("%Y-%m-%d %H:%M")
-                format_remote_file_path = ""
                 for i in remote_file_path[::-1]:
-                    if i != ".":
-                        index -= 1
-                    else:
-                        format_remote_file_path = f'{remote_file_path[:index:]} {now}{remote_file_path[index::]}'
+                    if i == '/':
+                        format_remote_file_path = formatting_file('/', remote_file_path)
+                        break
+                    elif i == "\\":
+                        format_remote_file_path = formatting_file('\\', remote_file_path)
                         break
 
                 upload(hostname, username, password, local_file_path, format_remote_file_path)
